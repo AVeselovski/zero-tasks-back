@@ -1,5 +1,5 @@
 const jwt = require('jwt-simple');
-const User = require('../models/user');
+const UserModel = require('../models/user');
 // config file must be created first in project root
 const config = require('../config');
 
@@ -9,14 +9,14 @@ function tokenForUser(user) {
 }
 
 // login controller
-exports.login = function(req, res, next) {
-    // user already authorized with passport's 'local' strategy middleware
-    // user model supplied by passport's 'done' call
-    res.json({ token: tokenForUser(req.user) });
+exports.login = function (req, res, next) {
+    // user authorized with passport's 'local' strategy middleware
+    // user model instance supplied by passport's 'done' call
+    res.json({ token: tokenForUser(req.user) }); // TODO: add user data to res object to populate client on login
 }
 
 // register controller
-exports.register = function(req, res, next) {
+exports.register = function (req, res, next) {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -27,7 +27,7 @@ exports.register = function(req, res, next) {
     }
 
     // check if user exists
-    User.findOne({ email: email }, function(error, existingUser) {
+    UserModel.findOne({ email: email }, function (error, existingUser) {
         if (error) { return next(error); }
 
         // if exists, return an error
@@ -36,16 +36,16 @@ exports.register = function(req, res, next) {
         }
 
         // if not, create and save user record
-        const user = new User({
+        const user = new UserModel({
             email: email,
             password: password
         });
 
-        user.save(function(error) {
+        user.save(function (error) {
             if (error) { return next(error); }
 
             // respond to request with token
-            res.json({ token: tokenForUser(user) });
+            res.json({ token: tokenForUser(user) }); // TODO: add user data to res object to init client on login
         });
     });
 }

@@ -19,6 +19,11 @@ app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 
+app.use(function (error, req, res, next) {
+    console.log(error);
+    res.status(error.status || 500).send(error.message);
+});
+
 // server setup
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
