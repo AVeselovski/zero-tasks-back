@@ -93,7 +93,7 @@ exports.putNote = function (req, res, next) {
 }
 
 // checking list-items update
-// NEEDS FURTHER RESEARCH IF AT ALL USEFUL, what would be
+// NEEDS FURTHER RESEARCH IF AT ALL USEFUL and what would be
 exports.putNoteList = function (req, res, next) {
     const userId = req.user;
     const noteId = req.params.id;

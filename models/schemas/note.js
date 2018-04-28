@@ -19,7 +19,6 @@ const ListSchema = new Schema({
 });
 
 const NoteSchema = new Schema({
-    // controller should make sure title or desc is always provided
     title: {
         type: String,
         default: null
@@ -45,7 +44,7 @@ const NoteSchema = new Schema({
     status: {
         type: String,
         required: true,
-        default: 'active' // active, (review?), done, archived
+        default: 'active' // active / archived
     },
     duedate: {
         type: Date,

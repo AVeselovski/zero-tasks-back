@@ -1,4 +1,3 @@
-// entry point
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -7,7 +6,6 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
-// config file must be created first in project root
 const config = require('./config');
 
 // DB setup
@@ -18,9 +16,9 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
-
+// error handling
 app.use(function (error, req, res, next) {
-    console.log(error);
+    console.error(error.message);
     res.status(error.status || 500).send(error.message);
 });
 
