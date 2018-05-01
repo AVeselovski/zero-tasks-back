@@ -9,7 +9,12 @@ const cors = require('cors');
 const config = require('./config');
 
 // DB setup
-mongoose.connect(config.databaseURL);
+if (process.env.NODE_ENV === 'production') {
+    mongoose.connect(config.databaseURL);
+} else {
+    mongoose.connect(config.databaseURLdev);
+}
+console.log(process.env.NODE_ENV);
 
 // App setup
 app.use(morgan('combined'));
