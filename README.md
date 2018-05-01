@@ -1,4 +1,4 @@
-# Note Keep API
+# Zero Tasks API
 
 JWT based authorization pre-set using Passport.
 
