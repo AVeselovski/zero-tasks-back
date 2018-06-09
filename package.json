@@ -1,26 +1,26 @@
 {
-  "name": "zero-tasks-back",
-  "version": "0.1.0",
-  "description": "Zero-tasks backend.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "SET \"NODE_ENV=development\" && nodemon index.js",
-    "production": "SET \"NODE_ENV=production\" && node index.js"
-  },
-  "author": "Artur Veselovski",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.3",
-    "jwt-simple": "^0.5.1",
-    "mongoose": "^5.0.17",
-    "morgan": "^1.9.0",
-    "nodemon": "^1.17.3",
-    "passport": "^0.4.0",
-    "passport-jwt": "^3.0.1",
-    "passport-local": "^1.0.0"
-  }
+	"name": "zero-tasks-back",
+	"version": "0.1.0",
+	"description": "Zero-tasks backend.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "SET \"NODE_ENV=development\" && nodemon index.js",
+		"production": "SET \"NODE_ENV=production\" && node index.js"
+	},
+	"author": "Artur Veselovski",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt-nodejs": "0.0.3",
+		"body-parser": "^1.18.2",
+		"cors": "^2.8.4",
+		"express": "^4.16.3",
+		"jwt-simple": "^0.5.1",
+		"mongoose": "^5.0.17",
+		"morgan": "^1.9.0",
+		"nodemon": "^1.17.3",
+		"passport": "^0.4.0",
+		"passport-jwt": "^3.0.1",
+		"passport-local": "^1.0.0"
+	}
 }
