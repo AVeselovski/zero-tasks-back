@@ -1,7 +1,7 @@
 {
 	"name": "zero-tasks-back",
 	"version": "0.1.0",
-	"description": "Zero-tasks backend.",
+	"description": "Zero Tasks backend.",
 	"main": "index.js",
 	"engines": {
 		"node": "8.11.2",
