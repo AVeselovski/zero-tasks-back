@@ -2,7 +2,7 @@ const jwt = require('jwt-simple');
 const UserModel = require('../models/user');
 // config file must be created first in project root
 const keys = require('../config/keys');
-const config = require('../config');
+// const config = require('../config');
 
 function tokenForUser(user) {
 	const timestamp = new Date().getTime();

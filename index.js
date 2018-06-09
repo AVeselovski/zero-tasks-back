@@ -7,7 +7,7 @@ const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const keys = require('./config/keys');
-const config = require('./config');
+// const config = require('./config');
 
 // DB setup
 /*
