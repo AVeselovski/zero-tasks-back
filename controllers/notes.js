@@ -8,9 +8,8 @@ exports.getNotes = function(req, res, next) {
 		if (error) {
 			return next(error);
 		}
-		const notes = response.notes.sort(function(a, b) {
-			return b.priority - a.priority;
-		});
+		
+		const notes = response.notes;
 		res.status(200).send(notes);
 	});
 };
