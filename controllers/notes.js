@@ -8,8 +8,10 @@ exports.getNotes = function(req, res, next) {
 		if (error) {
 			return next(error);
 		}
-
-		const notes = response.notes.sort('-createdAt');
+		
+		const notes = response.notes.sort(function(a, b) {
+			return b.createdAt - a.createdAt;
+		});
 		res.status(200).send(notes);
 	});
 };
