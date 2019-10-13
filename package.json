@@ -1,6 +1,6 @@
 {
 	"name": "zero-tasks-back",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Zero Tasks backend.",
 	"main": "index.js",
 	"engines": {
