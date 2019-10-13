@@ -7,16 +7,8 @@ const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const keys = require('./config/keys');
-// const config = require('./config');
 
 // DB setup
-/*
-if (process.env.NODE_ENV === 'production') {
-    mongoose.connect(config.databaseURL);
-} else {
-    mongoose.connect(config.databaseURLdev);
-}
-*/
 mongoose.connect(keys.databaseURL);
 console.log(process.env.NODE_ENV);
 

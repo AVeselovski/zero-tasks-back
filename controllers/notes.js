@@ -25,10 +25,19 @@ exports.getNote = function(req, res, next) {
         { 'notes.$': 1 },
         function (error, response) {
             if (error) {
+				error.status = 404;
                 return next(error);
 			}
 			
-            const note = response[0].notes;
+			const note = response[0] ? response[0].notes[0] : null;
+			if (!note) {
+				let error = new Error();
+				error.status = 404;
+				error.message = 'Resource not found.'
+
+				return next(error);
+			}
+			
             res.status(200).send(note);
         }
     );
