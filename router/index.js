@@ -15,6 +15,7 @@ module.exports = function(app) {
 	app.post('/login', requireLogin, AuthController.login);
 	// resources
 	app.get('/notes', requireToken, NoteController.getNotes);
+	app.get('/notes/:id', requireToken, NoteController.getNote);
 	app.post('/note', requireToken, NoteController.postNote);
 	app.delete('/note/:id', requireToken, NoteController.deleteNote);
 	app.put('/note/:id', requireToken, NoteController.putNote);

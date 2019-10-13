@@ -16,7 +16,25 @@ exports.getNotes = function(req, res, next) {
 	});
 };
 
-// adding new notes
+// get by id
+exports.getNote = function(req, res, next) {
+	const userId = req.user;
+
+	UserModel.find(
+        { _id: userId, "notes._id": req.params.id },
+        { 'notes.$': 1 },
+        function (error, response) {
+            if (error) {
+                return next(error);
+			}
+			
+            const note = response[0].notes;
+            res.status(200).send(note);
+        }
+    );
+}
+
+// adding new note
 exports.postNote = function(req, res, next) {
 	const userId = req.user;
 	const note = {
@@ -97,7 +115,6 @@ exports.putNote = function(req, res, next) {
 };
 
 // checking list-items update
-// NEEDS FURTHER RESEARCH IF AT ALL USEFUL and what would be
 exports.putNoteList = function(req, res, next) {
 	const userId = req.user;
 	const noteId = req.params.id;
@@ -136,5 +153,5 @@ exports.putNoteStatus = function(req, res, next) {
 	);
 };
 
-// NOTE TO SELF! To update specific fields in a document, use DOT NOTATION as below.
-// Supplying an object instead will overwrite the document with the obvject (_id too).
+// NOTE TO SELF! To update specific fields in a document, use DOT NOTATION as above.
+// Supplying an object instead will overwrite the document with the object (_id too).
