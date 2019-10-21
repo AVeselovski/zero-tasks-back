@@ -93,10 +93,6 @@ exports.deleteNote = function(req, res, next) {
 exports.putNote = function(req, res, next) {
 	const userId = req.user;
 	const noteId = req.params.id;
-	const note = {
-		...req.body,
-		updatedAt: Date.now()
-	};
 
 	if (!req.body.title && !req.body.description) {
 		const error = new Error('Invalid submission. Title or description must be provided.');
@@ -127,7 +123,7 @@ exports.putNote = function(req, res, next) {
 exports.putNoteList = function(req, res, next) {
 	const userId = req.user;
 	const noteId = req.params.id;
-	const updatedList = req.body;
+	const updatedList = req.body.list;
 
 	UserModel.update(
 		{ _id: userId, 'notes._id': noteId },
